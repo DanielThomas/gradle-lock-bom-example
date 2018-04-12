@@ -1,0 +1,26 @@
+plugins {
+  id 'java'
+}
+
+configurations.all {
+	resolutionStrategy {
+		eachDependency {
+			if (details.requested.name == 'spring-context') {
+	 	       details.useVersion '5.0.5.RELEASE'
+	    	}
+		}
+	}
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.springframework:spring-context'
+}
+
+dependencyLocking {
+    lockAllConfigurations()
+}
+
